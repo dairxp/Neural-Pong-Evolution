@@ -36,9 +36,6 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Modelos, Entrenamiento y Logs de IA
-models/
-logs/
-results/
 runs/
 *.zip
 *.pkl
