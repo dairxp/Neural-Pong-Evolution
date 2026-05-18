@@ -1,30 +1,55 @@
-# Frontend (Node / Vite)
-frontend/node_modules/
-frontend/dist/
-frontend/dist-ssr/
-frontend/.env
-frontend/.env.*
-frontend/.env.*.local
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+.vite/
+.env
+.env.*
+.env.*.local
 *.local
 
-# Backend (Python)
-backend/venv/
-backend/env/
-backend/__pycache__/
-*.pyc
-*.pyo
+# Python / Backend
+__pycache__/
+*.py[cod]
+*$py.class
 *.pyd
+*.so
 .Python
 env/
 venv/
+ENV/
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Directorios de Entrenamiento de IA
+# Modelos, Entrenamiento y Logs de IA
 models/
 logs/
 results/
+runs/
 *.zip
+*.pkl
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
 # OS
 .DS_Store
