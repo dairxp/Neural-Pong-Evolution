@@ -1,58 +1,49 @@
-# Neural Pong Evolution
+# AI Arcade Lab
 
-![Entrenamiento de IA](repo/pong2.gif)
+Bienvenido a AI Arcade Lab, un laboratorio de experimentación dedicado a aplicar Inteligencia Artificial y Aprendizaje por Refuerzo (Reinforcement Learning) en videojuegos clásicos y de estrategia.
 
-Proyecto de Inteligencia Artificial que utiliza Aprendizaje por Refuerzo para dominar el clasico juego de Pong mediante una arquitectura cliente-servidor hibrida.
+Este repositorio es un "monorepo" que agrupa varios proyectos, cada uno explorando diferentes algoritmos y arquitecturas de IA.
 
-## Instalacion y Requisitos
-
-**1. Preparar el Frontend (Navegador):**
-```bash
-npm install
-npm run dev
-```
-
-**2. Preparar el Backend (Python):**
-Abre una nueva terminal y ejecuta:
-```bash
-cd backend
-python -m venv venv
-.\venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-## Guia de Uso Rapido
-
-### 1. Entrenar a la Inteligencia Artificial
-Si deseas que la maquina aprenda desde cero:
-```bash
-cd backend
-.\venv\Scripts\activate
-python train.py
-```
-*Abre el navegador en la URL que te de el frontend, marca la casilla **"Modo Entrenamiento (x10)"** y dale a Iniciar. La IA empezara a jugar contra el maestro a maxima velocidad.*
-
-### 2. Jugar contra la IA (Inferencia)
-Si ya tienes modelos entrenados y quieres retarlos:
-```bash
-cd backend
-.\venv\Scripts\activate
-python play.py
-```
-*Abre el navegador, **asegurate de desmarcar** la casilla de entrenamiento y dale a Iniciar. Usa las teclas `W` (Arriba), `S` (Abajo) y `D` (Aceleracion/Smash) para intentar ganarle a tu creacion.*
-
-### 3. Cambiar de Modelo / Dificultad
-Mientras entrenas, el sistema guarda automaticamente copias de seguridad de la IA en varios niveles (ej. `pong_nivel_20000_steps.zip`). 
-Para pelear contra un nivel mas facil, simplemente abre el archivo `backend/play.py` y cambia la ruta del archivo en la linea correspondiente:
-```python
-MODEL_PATH = "models/pong_nivel_20000_steps.zip"
-```
+![Entrenamiento de IA Pong](repo/pong2.gif)
+![Entrenamiento de IA Dino](repo/dino-ai.gif)
 
 ---
 
-## Tecnologias Principales
-- **Motor Grafico (Frontend):** TypeScript, HTML5 Canvas, Vite.
-- **Servidor de Inferencia (Backend):** Python, FastAPI, WebSockets.
-- **Inteligencia Artificial:** Gymnasium, Stable-Baselines3 (Proximal Policy Optimization).
+## Visión General de los Proyectos
 
-Para obtener documentacion tecnica a nivel experto, explicacion de los algoritmos, reglas del entorno, y el por que de la configuracion asincrona, consulte el [**Manual Tecnico (manual.md)**](./manual.md).
+### 1. [Neural Pong Evolution](./pong-rl/)
+Proyecto que utiliza Aprendizaje por Refuerzo para dominar el clásico juego de Pong mediante una arquitectura cliente-servidor híbrida.
+- Frontend: TypeScript, HTML5 Canvas, Vite.
+- Backend / IA: Python, FastAPI, WebSockets, Stable-Baselines3 (PPO), Gymnasium.
+- [Ver documentación completa](./pong-rl/README.md) | [Manual Técnico Específico](./pong-rl/manual.md)
+
+### 2. [Soldaditos RTS](./soldaditoss/)
+Juego de estrategia en tiempo real (RTS) 2D donde dos equipos de agentes PPO se enfrentan en combate directo.
+- Enfoque: Entrenamiento "Self-Play" donde los agentes mejoran jugando entre ellos.
+- Tecnologías: Pygame, Stable-Baselines3 (PPO), entorno personalizado de Gymnasium.
+- [Ver documentación completa](./soldaditoss/README.md)
+
+### 3. T-Rex Runner & AI
+El clásico juego del dinosaurio de Chrome, modernizado y ampliado para ser jugado de forma autónoma.
+- [T-Rex Runner](./t-rex-runner/): El juego clásico portado a un código limpio con Vite + TypeScript.
+- [T-Rex AI](./t-rex-ai/): Extensión del juego base donde los agentes aprenden a sortear los obstáculos usando algoritmos genéticos y redes neuronales.
+- [Ver documentación (T-Rex AI)](./t-rex-ai/README.md) | [Ver documentación (T-Rex Runner)](./t-rex-runner/README.md)
+
+---
+
+## Manual Técnico Completo
+Para obtener información detallada sobre la arquitectura global, el proceso de entrenamiento de cada agente, y los orígenes históricos de cada integración (incluyendo orígenes del T-Rex), consulte el [Manual Técnico del Laboratorio](./manual.md).
+
+## Requisitos Generales
+
+Cada proyecto es independiente y cuenta con sus propias instrucciones de configuración, pero a nivel general necesitará:
+
+- Node.js y npm: Para los frontends y proyectos en TypeScript (pong-rl, t-rex-runner, t-rex-ai).
+- Python 3.8+: Para entrenar y ejecutar los agentes de IA en el backend (pong-rl, soldaditoss).
+
+Consulte el archivo README.md respectivo en cada subdirectorio para instrucciones detalladas.
+
+## Créditos y Licencias
+
+- Desarrollado y mantenido por Aldair Andrade.
+- Las licencias de las adaptaciones de juegos de código abierto (como el T-Rex Runner de Chromium) se encuentran detalladas dentro de cada subproyecto.
