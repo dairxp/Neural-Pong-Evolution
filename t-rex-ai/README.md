@@ -24,7 +24,9 @@ See [`t-rex-runner/README.md`](t-rex-runner/README.md) for full details.
 
 Agente de Inteligencia Artificial que aprende a jugar T-Rex Runner autónomamente utilizando Redes Neuronales y un Algoritmo Genético.
 
-En esta implementación, la IA toma las decisiones de saltar o agacharse evaluando los obstáculos en pantalla.
+En esta implementación, todo el procesamiento y el entrenamiento ocurre de manera 100% nativa **localmente en el navegador** utilizando Typescript y Neuroevolución en memoria RAM.
+
+La IA toma las decisiones de saltar, caer rápido o agacharse a través de una red neuronal customizada (sin frameworks pesados), evaluando 5 parámetros físicos del entorno.
 
 ---
 

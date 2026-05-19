@@ -19,17 +19,18 @@ Esta técnica se basa en la teoría de la evolución de Darwin adaptada al códi
 Cada dinosaurio posee un "cerebro" basado en una **Red Neuronal Artificial (Perceptrón Multicapa)** integrado nativamente en TypeScript.
 
 ### El Espacio de Observación (Inputs)
-Para que el agente pueda tomar una decisión, sus sensores captan la física métrica del entorno en tiempo real:
+Para que el agente pueda tomar una decisión, sus sensores captan la física métrica del entorno en tiempo real a través de 5 neuronas:
 - **Distancia:** Proximidad en el eje X hacia el obstáculo más cercano.
-- **Ancho del obstáculo:** Para inferir cuánto tiempo debe mantener el salto presionado.
+- **Ancho del obstáculo:** Para inferir si es un cactus simple o un grupo ancho.
 - **Altura del obstáculo:** Clave para distinguir si debe saltar (Cactus altos) o agacharse (Pterodáctilos aéreos).
-- **Velocidad del entorno:** El juego acelera progresivamente, por ende la IA necesita la velocidad como input paramétrico para ajustar los tiempos de reacción de sus acciones.
+- **Posición Y del Dinosaurio:** Le informa a su propio cerebro si está actualmente en el suelo o en el aire.
+- **Velocidad del entorno:** El juego acelera progresivamente, por ende la IA necesita la velocidad como input paramétrico para ajustar sus tiempos de reacción.
 
 ### El Espacio de Acción (Outputs)
-La capa de salida de la red de cada individuo se procesa a través de una función de activación, típicamente resultando en dimensiones discretas binarias:
-- **Acción 1:** Ejecutar Salto.
-- **Acción 2:** Ejecutar Agache.
-- **Acción 3:** Mantener posición de carrera base.
+La capa de salida de la red cuenta con 2 nodos, los cuales son procesados a través de la función de activación Sigmoide (valores entre 0.0 y 1.0) para definir la acción a ejecutar:
+- **Neurona 1 (> 0.5):** Ejecutar **Salto** (Simula presionar la barra espaciadora).
+- **Neurona 2 (> 0.5):** Ejecutar **Agache** (Simula presionar la flecha abajo). Si el dinosaurio está en el aire, esto desencadena una **Caída Rápida** hacia el suelo.
+* *(Si ninguna neurona supera el 0.5, el T-Rex simplemente mantiene su posición de carrera base).*
 
 ---
 
